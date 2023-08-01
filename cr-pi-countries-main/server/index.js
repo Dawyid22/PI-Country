@@ -8,16 +8,17 @@ server.listen(PORT, async () => {
 
   const DB = Country.findAll()
   if(!DB.length){
-    const { data } = await axios('http://localhost:5000/countries')
+    const { data } = await axios.get('http://localhost:5000/countries')
     const SearchDB = data.map(country => {
       return {
         id: country.cca3,
         name: country.name.common,
         flag: country.flags.png,
-        continent: country.region,
+        continent: country.continents[0],
         capital: country.capital ? country.capital[0] : "No se encontro la capital del pais",
         population: country.population,
-        maps: country.maps ? country.maps.googleMaps : "No hay mapas"
+        maps: country.maps ? country.maps.googleMaps : "No hay mapas",
+        languages: country.languages ? country.languages : "No hay idioma encontrado"
       }
     })
 

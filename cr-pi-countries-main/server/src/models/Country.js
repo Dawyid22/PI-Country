@@ -32,6 +32,9 @@ module.exports = (sequelize) => {
     },
     maps:{
       type: DataTypes.STRING,
+    },
+    languages:{
+      type: DataTypes.JSON
     }
   }, {
     timestamps: false
