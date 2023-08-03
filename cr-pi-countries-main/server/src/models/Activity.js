@@ -18,12 +18,8 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        duration: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         season: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera'),
             allowNull: false,
         }
     }, {
