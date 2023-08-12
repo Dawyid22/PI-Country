@@ -1,0 +1,18 @@
+.containerNavBar{
+    height: 55px;
+}
+
+.containerLanding {
+  position: relative;
+}
+
+.buttonLanding {
+  position: absolute;
+  left:-5px;
+  top: -20px;
+}
+
+.landingGif {
+  width: 70px;
+  height: 70px;
+}

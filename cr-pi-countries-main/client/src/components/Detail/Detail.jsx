@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom'
 import { useParams } from "react-router-dom";
@@ -16,7 +17,7 @@ const Detail = () => {
   
   return (
     <div>
-      <NavLink to='/home'>Back</NavLink>
+      <NavLink to='/home'>X</NavLink>
       <img src={detail?.flag} alt={detail?.name} />
       <h2>{detail?.id}</h2>
       <h2>{detail?.name + ", " + detail?.capital}</h2>
