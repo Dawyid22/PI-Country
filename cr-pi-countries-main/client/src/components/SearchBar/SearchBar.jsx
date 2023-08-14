@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import style from './SearchBar.module.css'
 
 const SearchBar = () => {
   const [name, setName] = useState("");
@@ -31,9 +32,10 @@ const SearchBar = () => {
       console.error("Error fetching data:", error);
     }
   };
+  
 
   return (
-    <div>
+    <div className={style.container}>
       <input
         placeholder="Enter country..."
         type="search"

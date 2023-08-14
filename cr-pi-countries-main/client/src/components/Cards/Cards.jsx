@@ -51,7 +51,8 @@ function Cards() {
   };
 
   return (
-    <div>
+    <div className={style.container}>
+      <div>
       <select onChange={handleFilterCountries}>
         <option value="Default">Default</option>
         <option value="Asia">Asia</option>
@@ -60,20 +61,25 @@ function Cards() {
         <option value="Europe">Europa</option>
         <option value="Oceania">Oceania</option>
       </select>
+      </div>
 
+    <div>
       <select onChange={handleFilterPopulation}>
         <option value="Default">Default</option>
         <option value="Mayor">Mayor</option>
         <option value="Menor">Minor</option>
       </select>
+    </div>
 
+    <div>
       <select onChange={handleFilterName}>
         <option value="Default">Default</option>
         <option value="A">A - Z</option>
         <option value="Z">Z - A</option>
       </select>
+    </div>
 
-      <div className={style.container}>
+      <div className={style.cards}>
         {numberOfPage.map((country) => (
           <Card
             key={country.id}
@@ -88,7 +94,7 @@ function Cards() {
           />
         ))}
       </div>
-      <div>
+      <div className={style.buttonContainer}>
         <button onClick={handlePreviousPage}>Previous</button>
         <h2>{currentPage}</h2>
         <button onClick={handleNextPage}>Next</button>
@@ -98,3 +104,7 @@ function Cards() {
 }
 
 export default Cards;
+
+
+
+

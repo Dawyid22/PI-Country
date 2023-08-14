@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import SearcBar from '../SearchBar/SearchBar'
+import SearchBar from '../SearchBar/SearchBar'
 import style from './NavBar.module.css'
 
 const NavBar = () => {
@@ -11,7 +11,7 @@ const NavBar = () => {
       className={style.landingGif}
       /></NavLink>
         </div>
-      <SearcBar/>
+      <SearchBar/>
       <NavLink to={'/form'}>Create your activity</NavLink>
       <NavLink to={'/activities'}>Activities</NavLink>
     </div>

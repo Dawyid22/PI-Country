@@ -79,3 +79,4 @@ export const filterActivitiesByName = (name) => {
         payload: name
     }
 }
+

@@ -1,7 +1,27 @@
-.container {
+.cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
-  margin-left: auto;
+  padding: 20px;
+}
+
+.container {
+  background-image: url(https://wallpaperaccess.com/full/3289224.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  border: 2px solid red; /* Borde rojo para depuración */
+  background-color: lightblue; /* Fondo de color para depuración */
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
