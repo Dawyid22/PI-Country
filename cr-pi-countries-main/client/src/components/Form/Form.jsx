@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { postActivities } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,10 +10,8 @@ const Form = () => {
   const dispatch = useDispatch();
 
   const activities = useSelector((state) => state.allActivities);
-  console.log(activities);
 
   const countries = useSelector((state) => state.countries);
-  console.log(countries);
 
   const [errors, setErrors] = useState({});
 

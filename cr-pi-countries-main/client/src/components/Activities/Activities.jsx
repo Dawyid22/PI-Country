@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { getActivities } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
-import {filterActivitiesByName} from "../../redux/actions/actions";
+import {filterActivitiesByName, deleteActivity } from "../../redux/actions/actions";
 import { NavLink } from 'react-router-dom'
 import style from './Activities.module.css'
 
@@ -14,16 +14,23 @@ const Activities = () => {
   }, []);
 
   const activities = useSelector((state) => state.allActivities);
+  console.log(activities);
+
   const copyActivities = useSelector((state) => state.copyAllActivities);
+
+  const handleDelete = (event) => {
+    dispatch(deleteActivity(event.target.value))
+  }
 
   const createActivities = () => {
     return activities?.map((activity) => {
       return (
         <div className={style.cardContainer} key={activity.id}>
           <div className={style.cardContainer}>
-          <h2>{activity.name}</h2>
-          <h2>{activity.difficulty}</h2>
-          <h2>{activity.season}</h2>
+          <h2>Name: {activity.name}</h2>
+          <h2>Difficulty: {activity.difficulty}</h2>
+          <h2>Season: {activity.season}</h2>
+            <button onClick={handleDelete} value={activity.id}>Delete</button>
           <ul>
             {activity.Countries?.map((countries) => {
               return <li key={countries.id}>{countries.name}</li>;

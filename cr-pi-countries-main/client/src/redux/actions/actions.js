@@ -72,6 +72,18 @@ export const getActivities = () => {
     }
 }
 
+export const deleteActivity = (id) => {
+    const endpoint = `http://localhost:3001/activities/${id}`
+    return async () => {
+        try {
+            const response = await axios.delete(endpoint)
+         alert(response.data.message)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
 export const postActivities = (state) => {
     const endpoint = "http://localhost:3001/activities"
     return async () => {
