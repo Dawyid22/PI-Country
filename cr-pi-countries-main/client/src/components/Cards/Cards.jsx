@@ -17,7 +17,7 @@ function Cards() {
   useEffect(() => {
     dispatch(getCountries());
   }, []);
-
+console.log("==>", countries);
   const [currentPage, setCurrentPage] = useState(1);
   const numberOfCountries = 10;
 
@@ -61,17 +61,13 @@ function Cards() {
         <option value="Europe">Europa</option>
         <option value="Oceania">Oceania</option>
       </select>
-      </div>
 
-    <div>
       <select onChange={handleFilterPopulation}>
         <option value="Default">Default</option>
         <option value="Mayor">Mayor</option>
         <option value="Menor">Minor</option>
       </select>
-    </div>
 
-    <div>
       <select onChange={handleFilterName}>
         <option value="Default">Default</option>
         <option value="A">A - Z</option>
@@ -95,9 +91,9 @@ function Cards() {
         ))}
       </div>
       <div className={style.buttonContainer}>
-        <button onClick={handlePreviousPage}>Previous</button>
-        <h2>{currentPage}</h2>
-        <button onClick={handleNextPage}>Next</button>
+        <button className={style.border} onClick={handlePreviousPage}>⬅️</button>
+        <h2 className={style.colorH2}>{currentPage}</h2>
+        <button className={style.border} onClick={handleNextPage}>➡️</button>
       </div>
     </div>
   );

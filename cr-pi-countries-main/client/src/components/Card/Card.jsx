@@ -11,7 +11,7 @@ const Card = ({id, flag, name, continent}) => {
       <img className={style.imagen} src={flag} alt={name}/>
         </NavLink>
       </div>
-      <div>
+      <div className={style.textH2}>
         <h2>{name}</h2>
         <h2>{continent}</h2>
       </div>

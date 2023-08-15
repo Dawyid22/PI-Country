@@ -11,9 +11,13 @@ const NavBar = () => {
       className={style.landingGif}
       /></NavLink>
         </div>
+        <div className={style.inputsContainer}>
       <SearchBar/>
-      <NavLink to={'/form'}>Create your activity</NavLink>
-      <NavLink to={'/activities'}>Activities</NavLink>
+        </div>
+        <div>
+      <NavLink className={style.buttonCreate} to={'/form'}><button>Create your activity 🛠️</button></NavLink>
+      <NavLink className={style.buttonActivities} to={'/activities'}><button>Activities 🏃🏻</button></NavLink>
+        </div>
     </div>
   )
 }

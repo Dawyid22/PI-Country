@@ -1,5 +1,5 @@
 /* eslint-disable no-case-declarations */
-import { GET_COUNTRIES, GET_DETAIL, FILTER, FILTERPOPULATION, FILTERNAME, GET_ACTIVITY, FILTERACTIVITIESBYNAME } from '../actions/types'
+import { GET_COUNTRIES, GET_DETAIL, FILTER, FILTERPOPULATION, FILTERNAME, FILTERCOUNTRIESBYNAME, GET_ACTIVITY, FILTERACTIVITIESBYNAME } from '../actions/types'
 
 const globalState = {
     countries: [],
@@ -30,7 +30,7 @@ const rootReducer = (state = globalState, action) => {
             const copyFiltered = copyCountries2.filter(contry => contry.continent === action.payload)
             return {
                 ...state,
-                copyCountries: action.payload === "Default" ? copyCountries2 : copyFiltered
+                copyCountries: action.payload === "Default" ? [...state.countries] : copyFiltered
             }
 
         case FILTERPOPULATION:
@@ -77,6 +77,12 @@ const rootReducer = (state = globalState, action) => {
             return {
                 ...state,
                 allActivities: action.payload !== "Default" ? copyFilter : state.copyAllActivities
+            }
+
+        case FILTERCOUNTRIESBYNAME:
+            return{
+                ...state,
+                copyCountries: action.payload
             }
 
         default:

@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_DETAIL, FILTER, FILTERPOPULATION, FILTERNAME, GET_ACTIVITY, FILTERACTIVITIESBYNAME } from "./types";
+import { GET_COUNTRIES, GET_DETAIL, FILTER, FILTERPOPULATION, FILTERNAME, FILTERCOUNTRIESBYNAME, GET_ACTIVITY, FILTERACTIVITIESBYNAME } from "./types";
 import axios from 'axios'
 
 
@@ -22,6 +22,17 @@ export const getDetail = (id) => {
             const response = await axios.get(endpoint)
             const { id } = response.data
             return dispatch({ type: GET_DETAIL, payload: id })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export const filteredCountriesByName = (name) =>{
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(`http://localhost:3001/countries/name?name=${name}`)
+            return dispatch({type: FILTERCOUNTRIESBYNAME, payload: data})
         } catch (error) {
             console.log(error);
         }
@@ -55,7 +66,6 @@ export const getActivities = () => {
         try {
             const response = await axios.get(endpoint)
             return dispatch({ type: GET_ACTIVITY, payload: response.data })
-
         } catch (error) {
             console.log(error);
         }
@@ -79,4 +89,6 @@ export const filterActivitiesByName = (name) => {
         payload: name
     }
 }
+
+
 

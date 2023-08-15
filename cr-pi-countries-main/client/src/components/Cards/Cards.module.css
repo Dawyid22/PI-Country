@@ -1,3 +1,19 @@
+.container {
+  background-image: url(https://www.wallpapertip.com/wmimgs/28-281981_old-world-maps-wallpaper-old-map-wallpaper-hd.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0px;
+  color: black;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -5,23 +21,22 @@
   padding: 20px;
 }
 
-.container {
-  background-image: url(https://wallpaperaccess.com/full/3289224.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  border: 2px solid red; /* Borde rojo para depuración */
-  background-color: lightblue; /* Fondo de color para depuración */
-}
-
 .buttonContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.colorH2{
+  color:  white;
+  padding: 20px;
+}
+
+.border {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(235, 190, 30, 0.5);
+  border-radius: 35%;
+}
+

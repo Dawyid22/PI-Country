@@ -1,12 +1,25 @@
 .imagen {
   width: 250px;
   height: 150px;
+  margin: 5px;
+  border: 4px solid #000;
 }
 
 .border {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  background-color: rgba(235, 190, 30, 0.2);
+  background-color: rgba(235, 190, 30, 0.3);
   margin-top: 40px;
+  border: 2px solid #000;
+}
+
+.textH2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  border: 4px solid #000;
+  background-color: rgba(255, 255, 255, 0.3);
 }

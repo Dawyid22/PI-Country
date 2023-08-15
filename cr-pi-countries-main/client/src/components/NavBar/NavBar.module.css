@@ -1,5 +1,7 @@
-.containerNavBar{
-    height: 50px;
+.containerNavBar {
+  border: 2px solid #000;
+  height: 70px;
+  background: linear-gradient(to bottom, rgba(255, 204, 0, 0.8), rgba(255, 153, 0, 0.8), rgba(255, 102, 0, 0.8));
 }
 
 .containerLanding {
@@ -8,11 +10,45 @@
 
 .buttonLanding {
   position: absolute;
-  left: 0px;
+  left: 10px;
   top: 0px;
 }
 
 .landingGif {
-  width: 80px;
-  height: 80px;
+  width: 68px;
+  height: 68px;
+}
+
+.inputsContainer {
+  position: relative;
+  position: absolute;
+  left: 650px;
+  top: 25px;
+  border: 2px solid #000;
+}
+
+.buttonCreate {
+  position: relative;
+  position: absolute;
+  left: 850px;
+  top: 13px;
+  border: 2px solid #000;
+  border-radius: 11px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(235, 190, 30, 0.5);
+}
+
+.buttonActivities {
+  position: relative;
+  position: absolute;
+  left: 1075px;
+  top: 13px;
+  border: 2px solid #000;
+  border-radius: 11px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(235, 190, 30, 0.5);
 }

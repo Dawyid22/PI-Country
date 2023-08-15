@@ -1,0 +1,67 @@
+.container {
+  background-image: url(https://e1.pxfuel.com/desktop-wallpaper/817/123/desktop-wallpaper-impressive-old-map-backgrounds-old-map-vintage-maps.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.containerCard {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(235, 190, 30, 0.3);
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  color: #000;
+  border: 3px solid #000;
+}
+
+.buttonX {
+  position: relative;
+  left: 770px;
+  top: -135px;
+  border: 3px solid #000;
+  background-color: crimson;
+  color: rgb(0, 0, 0);
+  padding: 7px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.flag {
+  position: relative;
+  left: 200px;
+  border: 3px solid #000;
+  border-radius: 80px;
+  animation: spin 6s linear infinite;
+  width: 250px;
+  height: 150px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg); 
+  }
+  100% {
+    transform: rotateY(365deg); 
+  }
+}
+
+.buttonLocation{
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: rgba(235, 190, 30, 0.5);
+  border-radius: 35%;
+}
+
+
