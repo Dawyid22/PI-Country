@@ -9,10 +9,13 @@ import style from "./Form.module.css";
 const Form = () => {
   const dispatch = useDispatch();
 
+  
   const countries = useSelector((state) => state.countries);
 
+  // Mi estado local para gestionar errores en el formulario.
   const [errors, setErrors] = useState({});
 
+  // Mi estado local para almacenar los datos del formulario.
   const [activity, setActivity] = useState({
     name: "",
     difficulty: "",
@@ -20,6 +23,7 @@ const Form = () => {
     idPais: [],
   });
 
+  // Controlador de cambio para los campos del formulario.
   const handleChange = (event) => {
     setActivity({
       ...activity,
@@ -34,35 +38,42 @@ const Form = () => {
     );
   };
 
+  // Controlador de selección de país.
   const handleIdPais = (event) => {
-  
-    if(activity.idPais.includes(event.target.value)){
-      return alert("Country cannot be repeated")
+    if (activity.idPais.includes(event.target.value)) {
+      return alert("Country cannot be repeated");
     }
 
     setActivity({
       ...activity,
       idPais: [...activity.idPais, event.target.value],
     });
-
   };
 
+  // Controlador para enviar el formulario.
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(postActivities(activity));
-  setActivity({
-    name: "",
-    difficulty: "",
-    season: "",
-    idPais: [],
-  });
+    // Reiniciamos los valores del formulario.
+    setActivity({
+      name: "",
+      difficulty: "",
+      season: "",
+      idPais: [],
+    });
   };
 
+  // Función para verificar si el formulario está completo.
   const isFormComplete = () => {
-    const buttondisabled = activity.name.length > 0 && activity.difficulty.length > 0 && activity.season.length > 0 && activity.idPais.length > 0;
-    return buttondisabled
-  }
+    return (
+      activity.name.length > 0 &&
+      activity.difficulty.length > 0 &&
+      activity.season.length > 0 &&
+      activity.idPais.length > 0
+    );
+  };
 
+  
   return (
     <form className={style.container}>
       <h2>🛠️Create your activity favorite🛠️</h2>
@@ -85,7 +96,7 @@ const Form = () => {
         <div>
           <h2>Select a difficulty: </h2>
           <select onChange={handleChange} name="difficulty">
-          <option value="" selected disabled hidden>Select...</option>
+            <option value="" disabled hidden>Select...</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -96,9 +107,9 @@ const Form = () => {
         </div>
 
         <div>
-          <h2>select a season: </h2>
+          <h2>Select a season: </h2>
           <select onChange={handleChange} name="season">
-          <option value="" selected disabled hidden>Select...</option>
+            <option value="" disabled hidden>Select...</option>
             <option value="Verano">Summer</option>
             <option value="Otoño">Autumn</option>
             <option value="Invierno">Winter</option>
@@ -108,9 +119,9 @@ const Form = () => {
         </div>
 
         <div>
-          <h2>Select a countries: </h2>
+          <h2>Select a country: </h2>
           <select onChange={handleIdPais} name="idPais">
-          <option value="" selected disabled hidden>Select...</option>
+            <option value="" disabled hidden>Select...</option>
             {countries.map((country) => {
               return (
                 <option key={country.id} value={country.id}>
@@ -121,9 +132,17 @@ const Form = () => {
           </select>
         </div>
 
-        <button className={style.buttonCreate} onClick={handleSubmit} disabled={!isFormComplete()} type="submit">
+        {/* Botón para enviar el formulario */}
+        <button
+          className={style.buttonCreate}
+          onClick={handleSubmit}
+          disabled={!isFormComplete()}
+          type="submit"
+        >
           Create Activity 🛠️
         </button>
+
+        {/* Lista de países seleccionados */}
         <ul>
           {activity.idPais?.map((elem) => {
             return <li key={elem}>{elem}</li>;

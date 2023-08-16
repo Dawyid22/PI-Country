@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -6,6 +7,7 @@ import { getDetail } from "../../redux/actions/actions";
 import style from "./Detail.module.css";
 
 const Detail = () => {
+  // Obtengo el id que recibo en el parametro 
   const { id } = useParams();
   const dispatch = useDispatch();
 
