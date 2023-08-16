@@ -20,6 +20,13 @@ const Activities = () => {
   const handleDelete = (event) => {
     dispatch(deleteActivity(event.target.value))
   }
+  useEffect(() => {
+
+  }, )
+  
+  const handleClick = (event) => {
+    dispatch(filterActivitiesByName(event.target.value));
+  };
 
   const createActivities = () => {
     return activities?.map((activity) => {
@@ -41,9 +48,6 @@ const Activities = () => {
     });
   };
 
-  const handleClick = (event) => {
-    dispatch(filterActivitiesByName(event.target.value));
-  };
 
   return (
     <div className={style.container}>

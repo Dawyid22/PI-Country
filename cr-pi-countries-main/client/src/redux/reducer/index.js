@@ -85,7 +85,6 @@ const rootReducer = (state = globalState, action) => {
                 copyCountries: action.payload
             }
 
-
         default:
             return { ...state }
     }
