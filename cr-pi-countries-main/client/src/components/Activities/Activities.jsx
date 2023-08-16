@@ -14,7 +14,6 @@ const Activities = () => {
   }, []);
 
   const activities = useSelector((state) => state.allActivities);
-  console.log(activities);
 
   const copyActivities = useSelector((state) => state.copyAllActivities);
 
@@ -25,8 +24,8 @@ const Activities = () => {
   const createActivities = () => {
     return activities?.map((activity) => {
       return (
-        <div className={style.cardContainer} key={activity.id}>
-          <div className={style.cardContainer}>
+        <div key={activity.id}>
+          <div>
           <h2>Name: {activity.name}</h2>
           <h2>Difficulty: {activity.difficulty}</h2>
           <h2>Season: {activity.season}</h2>
@@ -48,20 +47,21 @@ const Activities = () => {
 
   return (
     <div className={style.container}>
-      <h1>🏃🏻Here you can see all the activities🏃🏻</h1>
-      <div className={style.cardContainer}>
-      <NavLink to={'/home'}><button className={style.buttonBack}>⬅️</button></NavLink>
-      <select onClick={handleClick}>
-        <option value="Default">Default</option>
-        {copyActivities?.map((elem) => {
-          return <option key={elem.id}>{elem.name}</option>;
-        })}
-      </select>
-      </div>
-
-      {createActivities()}
-    </div>
+  <div>
+    <h1 className={style.h1}>🏃🏻Here you can see all the activities🏃🏻</h1>
+    <NavLink to={'/home'}><button className={style.buttonBack}>⬅️</button></NavLink>
+    <select className={style.inputSelect} onClick={handleClick}>
+      <option value="" disabled hidden>Select...</option>
+      {copyActivities?.map((elem) => {
+        return <option key={elem.id}>{elem.name}</option>;
+      })}
+    </select>
+  </div>
+  <div className={style.cardGrid}>{createActivities()}</div>
+</div>
   );
 };
 
 export default Activities;
+
+

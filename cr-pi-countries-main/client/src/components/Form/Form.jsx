@@ -35,20 +35,37 @@ const Form = () => {
   };
 
   const handleIdPais = (event) => {
+  
+    if(activity.idPais.includes(event.target.value)){
+      return alert("Country cannot be repeated")
+    }
+
     setActivity({
       ...activity,
       idPais: [...activity.idPais, event.target.value],
     });
+
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(postActivities(activity));
+  setActivity({
+    name: "",
+    difficulty: "",
+    season: "",
+    idPais: [],
+  });
   };
+
+  const isFormComplete = () => {
+    const buttondisabled = activity.name.length > 0 && activity.difficulty.length > 0 && activity.season.length > 0 && activity.idPais.length > 0;
+    return buttondisabled
+  }
 
   return (
     <form className={style.container}>
-      <h1>🛠️Create your activity favorite🛠️</h1>
+      <h2>🛠️Create your activity favorite🛠️</h2>
       <div className={style.formContainer}>
         <NavLink to={"/home"}>
           <button className={style.buttonBack}>⬅️</button>
@@ -68,7 +85,7 @@ const Form = () => {
         <div>
           <h2>Select a difficulty: </h2>
           <select onChange={handleChange} name="difficulty">
-            <option value="Default">Select...</option>
+          <option value="" selected disabled hidden>Select...</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -81,7 +98,7 @@ const Form = () => {
         <div>
           <h2>select a season: </h2>
           <select onChange={handleChange} name="season">
-            <option value="Default">Select...</option>
+          <option value="" selected disabled hidden>Select...</option>
             <option value="Verano">Summer</option>
             <option value="Otoño">Autumn</option>
             <option value="Invierno">Winter</option>
@@ -93,7 +110,7 @@ const Form = () => {
         <div>
           <h2>Select a countries: </h2>
           <select onChange={handleIdPais} name="idPais">
-            <option value="Default">Default</option>
+          <option value="" selected disabled hidden>Select...</option>
             {countries.map((country) => {
               return (
                 <option key={country.id} value={country.id}>
@@ -104,7 +121,7 @@ const Form = () => {
           </select>
         </div>
 
-        <button className={style.buttonCreate} onClick={handleSubmit} type="submit">
+        <button className={style.buttonCreate} onClick={handleSubmit} disabled={!isFormComplete()} type="submit">
           Create Activity 🛠️
         </button>
         <ul>

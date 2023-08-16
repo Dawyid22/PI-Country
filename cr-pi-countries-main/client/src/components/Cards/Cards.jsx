@@ -17,7 +17,7 @@ function Cards() {
   useEffect(() => {
     dispatch(getCountries());
   }, []);
-console.log("==>", countries);
+
   const [currentPage, setCurrentPage] = useState(1);
   const numberOfCountries = 10;
 
