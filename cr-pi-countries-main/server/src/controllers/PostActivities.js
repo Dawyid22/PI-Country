@@ -7,7 +7,7 @@ const postActivities = async (req, res) => {
         const respuesta = await Activity.create({ name, difficulty, season })
         await respuesta.setCountries(idPais);
         const actividadCreada = await Activity.findOne({ where: { id: respuesta.id }, include: { model: Country } })
-        return res.status(200).json({ "message": "Actividad creada correctamente", actividadCreada })
+        return res.status(200).send({ "message": "Actividad creada correctamente", actividadCreada })
     } catch (error) {
         return res.status(404).send({ "error": error.message })
     }

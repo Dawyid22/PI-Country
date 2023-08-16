@@ -89,6 +89,7 @@ export const postActivities = (state) => {
     return async () => {
         try {
             await axios.post(endpoint, state)
+            alert("Successfully created activity")
         } catch (error) {
             console.log(error);
         }

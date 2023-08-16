@@ -46,5 +46,10 @@
   background-color: rgba(235, 190, 30, 0.5);
   border-radius: 35%;
   position: relative;
-  top: 20px;
+  top: 40px;
+  left: 200px;
+}
+
+.error{
+  color: red;
 }

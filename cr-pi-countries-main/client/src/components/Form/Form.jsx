@@ -9,8 +9,6 @@ import style from "./Form.module.css";
 const Form = () => {
   const dispatch = useDispatch();
 
-  const activities = useSelector((state) => state.allActivities);
-
   const countries = useSelector((state) => state.countries);
 
   const [errors, setErrors] = useState({});
@@ -64,7 +62,7 @@ const Form = () => {
             value={activity.name}
             onChange={handleChange}
           />
-          {errors.name && <p>{errors.name}</p>}
+          {errors.name && <p className={style.error}>{errors.name}</p>}
         </div>
 
         <div>
@@ -77,7 +75,7 @@ const Form = () => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          {errors.difficulty && <p>{errors.difficulty}</p>}
+          {errors.difficulty && <p className={style.error}>{errors.difficulty}</p>}
         </div>
 
         <div>
@@ -89,7 +87,7 @@ const Form = () => {
             <option value="Invierno">Winter</option>
             <option value="Primavera">Spring</option>
           </select>
-          {errors.season && <p>{errors.season}</p>}
+          {errors.season && <p className={style.error}>{errors.season}</p>}
         </div>
 
         <div>
