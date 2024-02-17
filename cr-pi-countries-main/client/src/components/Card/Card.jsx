@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
 import style from './Card.module.css'
 
@@ -12,7 +13,7 @@ const Card = ({id, flag, name, continent}) => {
         </NavLink>
       </div>
       <div className={style.textH2}>
-        <h2>{name}</h2>
+        <h2>{name.length > 10 ? name.slice(0, 10) + "..." : name}</h2>
         <h2>{continent}</h2>
       </div>
     </div>

@@ -34,7 +34,7 @@ const rootReducer = (state = globalState, action) => {
             }
 
         case FILTERPOPULATION:
-            const copyCountries = [...state.countries]
+            const copyCountries = [...state.copyCountries]
 
             if (action.payload === "Mayor") {
                 copyCountries.sort((a, b) => b.population - a.population)
@@ -50,7 +50,7 @@ const rootReducer = (state = globalState, action) => {
             }
 
         case FILTERNAME:
-            const copyName = [...state.countries]
+            const copyName = [...state.copyCountries]
 
             if (action.payload === "A") {
                 copyName.sort((a, b) => a.name.localeCompare(b.name))

@@ -11,8 +11,12 @@ import { useLocation } from 'react-router-dom'
 function App() {
  const location = useLocation()
   return (
-      <div>
+      <div className='app_main'>
         {location.pathname !== '/' ? <NavBar/> : null}
+        <div>
+          
+        </div>
+        
         <Routes>
           <Route path='/' element={<Landing/>}/>
           <Route path='/home' element={<Cards/>}/>

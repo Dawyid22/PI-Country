@@ -22,9 +22,9 @@ function Cards() {
 
   // Mi estado local para el control de paginado
   const [currentPage, setCurrentPage] = useState(1);
-  const numberOfCountries = 10;
+  const numberOfCountries = 12;
 
-
+  //Paginado
   const totalPages = Math.ceil(countries.length / numberOfCountries);
   const start = (currentPage - 1) * numberOfCountries;
   const end = start + numberOfCountries;
@@ -60,9 +60,8 @@ function Cards() {
   };
 
   return (
-    <div className={style.container}>
+    <div className={style.cards_main}>
       <div className={style.filters}>
-
         <select onChange={handleFilterCountries}>
           <option value="Default">Default</option>
           <option value="Asia">Asia</option>
@@ -101,7 +100,7 @@ function Cards() {
         ))}
       </div>
       
-      <div className={style.buttonContainer}>
+      <div className={style.page_container}>
         <button className={style.border} onClick={handlePreviousPage}>⬅️</button>
         <h2 className={style.colorH2}>{currentPage}</h2>
         <button className={style.border} onClick={handleNextPage}>➡️</button>

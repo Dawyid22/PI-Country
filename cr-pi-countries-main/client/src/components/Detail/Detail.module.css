@@ -1,5 +1,5 @@
 .container {
-  background-image: url(https://e1.pxfuel.com/desktop-wallpaper/817/123/desktop-wallpaper-impressive-old-map-backgrounds-old-map-vintage-maps.jpg);
+  background-color: aliceblue;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -32,9 +32,6 @@
   padding: 7px 10px;
   font-size: 18px;
   border-radius: 8px;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .flag {
@@ -60,7 +57,7 @@
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  background-color: rgba(235, 190, 30, 0.5);
+  background-color: rgba(0, 0, 0, 0.857);
   border-radius: 35%;
 }
 

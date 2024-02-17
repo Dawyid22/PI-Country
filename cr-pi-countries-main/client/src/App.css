@@ -1,9 +1,8 @@
-#root {
-    display: flex;
-    justify-content: center;
-  }
-  
-  
-  #root > * {
-    max-width:fit-content 
-  }
+.app_main {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+}
+

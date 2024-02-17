@@ -9,7 +9,6 @@ import style from "./Form.module.css";
 const Form = () => {
   const dispatch = useDispatch();
 
-  
   const countries = useSelector((state) => state.countries);
 
   // Mi estado local para gestionar errores en el formulario.
@@ -61,6 +60,7 @@ const Form = () => {
       season: "",
       idPais: [],
     });
+    setErrors({})
   };
 
   // Función para verificar si el formulario está completo.
@@ -76,7 +76,7 @@ const Form = () => {
   
   return (
     <form className={style.container}>
-      <h2>🛠️Create your activity favorite🛠️</h2>
+      <h1>🛠️Create your activity favorite🛠️</h1>
       <div className={style.formContainer}>
         <NavLink to={"/home"}>
           <button className={style.buttonBack}>⬅️</button>
@@ -96,7 +96,7 @@ const Form = () => {
         <div>
           <h2>Select a difficulty: </h2>
           <select onChange={handleChange} name="difficulty">
-            <option value="" disabled hidden>Select...</option>
+            <option value="">Select...</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -109,7 +109,7 @@ const Form = () => {
         <div>
           <h2>Select a season: </h2>
           <select onChange={handleChange} name="season">
-            <option value="" disabled hidden>Select...</option>
+            <option value="" >Select...</option>
             <option value="Verano">Summer</option>
             <option value="Otoño">Autumn</option>
             <option value="Invierno">Winter</option>
@@ -121,7 +121,7 @@ const Form = () => {
         <div>
           <h2>Select a country: </h2>
           <select onChange={handleIdPais} name="idPais">
-            <option value="" disabled hidden>Select...</option>
+            <option value="">Select...</option>
             {countries.map((country) => {
               return (
                 <option key={country.id} value={country.id}>
@@ -132,6 +132,13 @@ const Form = () => {
           </select>
         </div>
 
+        {/* Lista de países seleccionados */}
+        <ul>
+          {activity.idPais?.map((elem) => {
+            return <li key={elem}>{elem}</li>;
+          })}
+        </ul>
+
         {/* Botón para enviar el formulario */}
         <button
           className={style.buttonCreate}
@@ -141,13 +148,6 @@ const Form = () => {
         >
           Create Activity 🛠️
         </button>
-
-        {/* Lista de países seleccionados */}
-        <ul>
-          {activity.idPais?.map((elem) => {
-            return <li key={elem}>{elem}</li>;
-          })}
-        </ul>
       </div>
     </form>
   );
