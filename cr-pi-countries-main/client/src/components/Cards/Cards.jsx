@@ -7,11 +7,12 @@ import {
   filterByPopulation,
   filteredByName,
 } from "../../redux/actions/actions";
+import { NavLink } from "react-router-dom";
 import style from "./Cards.module.css";
 
 function Cards() {
   const dispatch = useDispatch();
-  
+
   // Uso el useSelector para obtener una copia de los países para filtrarlos.
   const countries = useSelector((state) => state.copyCountries);
 
@@ -82,6 +83,15 @@ function Cards() {
           <option value="A">A - Z</option>
           <option value="Z">Z - A</option>
         </select>
+
+        <div className={style.buttons}>
+          <NavLink className={style.buttonCreate} to={"/form"}>
+            <button>Create your activity 🛠️</button>
+          </NavLink>
+          <NavLink className={style.buttonActivities} to={"/activities"}>
+            <button>Activities 🏃🏻</button>
+          </NavLink>
+        </div>
       </div>
 
       <div className={style.cards}>
@@ -99,11 +109,15 @@ function Cards() {
           />
         ))}
       </div>
-      
+
       <div className={style.page_container}>
-        <button className={style.border} onClick={handlePreviousPage}>⬅️</button>
+        <button className={style.border} onClick={handlePreviousPage}>
+          ⬅️
+        </button>
         <h2 className={style.colorH2}>{currentPage}</h2>
-        <button className={style.border} onClick={handleNextPage}>➡️</button>
+        <button className={style.border} onClick={handleNextPage}>
+          ➡️
+        </button>
       </div>
     </div>
   );

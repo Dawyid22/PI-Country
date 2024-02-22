@@ -60,7 +60,7 @@ const Form = () => {
       season: "",
       idPais: [],
     });
-    setErrors({})
+    setErrors({});
   };
 
   // Función para verificar si el formulario está completo.
@@ -73,81 +73,87 @@ const Form = () => {
     );
   };
 
-  
   return (
-    <form className={style.container}>
-      <h1>🛠️Create your activity favorite🛠️</h1>
-      <div className={style.formContainer}>
+    <form className={style.form_main}>
+      <div className={style.title}>
         <NavLink to={"/home"}>
           <button className={style.buttonBack}>⬅️</button>
         </NavLink>
-        <div>
-          <h2>Name your activity: </h2>
-          <input
-            name="name"
-            type="text"
-            placeholder="Name your activity"
-            value={activity.name}
-            onChange={handleChange}
-          />
-          {errors.name && <p className={style.error}>{errors.name}</p>}
+
+        <h1>🛠️Create your activity favorite🛠️</h1>
+      </div>
+
+      <div className={style.container_form}>
+        <div className={style.container_inputs}>
+          <div className={style.inputs}>
+            <h2>Name your activity: </h2>
+            <input
+              name="name"
+              type="text"
+              placeholder="Name your activity"
+              value={activity.name}
+              onChange={handleChange}
+            />
+            {errors.name && <p className={style.error}>{errors.name}</p>}
+
+            <h2>Select a difficulty: </h2>
+            <select onChange={handleChange} name="difficulty">
+              <option value="">Select...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            {errors.difficulty && (
+              <p className={style.error}>{errors.difficulty}</p>
+            )}
+
+            <h2>Select a season: </h2>
+            <select onChange={handleChange} name="season">
+              <option value="">Select...</option>
+              <option value="Verano">Summer</option>
+              <option value="Otoño">Autumn</option>
+              <option value="Invierno">Winter</option>
+              <option value="Primavera">Spring</option>
+            </select>
+            {errors.season && <p className={style.error}>{errors.season}</p>}
+
+            <h2>Select a country: </h2>
+            <select onChange={handleIdPais} name="idPais">
+              <option value="">Select...</option>
+              {countries.map((country) => {
+                return (
+                  <option key={country.id} value={country.id}>
+                    {country.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          <div className={style.list}>
+            {/* Lista de países seleccionados */}
+            <h2>Countries List</h2>
+            <ul>
+              {activity.idPais?.map((elem) => {
+                return <li key={elem}>{elem}</li>;
+              })}
+            </ul>
+          </div>
         </div>
 
-        <div>
-          <h2>Select a difficulty: </h2>
-          <select onChange={handleChange} name="difficulty">
-            <option value="">Select...</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          {errors.difficulty && <p className={style.error}>{errors.difficulty}</p>}
+        <div className={style.container_button}>
+          {/* Botón para enviar el formulario */}
+          <button
+            className={style.buttonCreate}
+            onClick={handleSubmit}
+            disabled={!isFormComplete()}
+            type="submit"
+          >
+            Create Activity 🛠️
+          </button>
         </div>
-
-        <div>
-          <h2>Select a season: </h2>
-          <select onChange={handleChange} name="season">
-            <option value="" >Select...</option>
-            <option value="Verano">Summer</option>
-            <option value="Otoño">Autumn</option>
-            <option value="Invierno">Winter</option>
-            <option value="Primavera">Spring</option>
-          </select>
-          {errors.season && <p className={style.error}>{errors.season}</p>}
-        </div>
-
-        <div>
-          <h2>Select a country: </h2>
-          <select onChange={handleIdPais} name="idPais">
-            <option value="">Select...</option>
-            {countries.map((country) => {
-              return (
-                <option key={country.id} value={country.id}>
-                  {country.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-
-        {/* Lista de países seleccionados */}
-        <ul>
-          {activity.idPais?.map((elem) => {
-            return <li key={elem}>{elem}</li>;
-          })}
-        </ul>
-
-        {/* Botón para enviar el formulario */}
-        <button
-          className={style.buttonCreate}
-          onClick={handleSubmit}
-          disabled={!isFormComplete()}
-          type="submit"
-        >
-          Create Activity 🛠️
-        </button>
       </div>
     </form>
   );

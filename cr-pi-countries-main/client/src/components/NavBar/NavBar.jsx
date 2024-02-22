@@ -14,10 +14,6 @@ const NavBar = () => {
         <div className={style.inputsContainer}>
       <SearchBar/>
         </div>
-        <div>
-      <NavLink className={style.buttonCreate} to={'/form'}><button>Create your activity 🛠️</button></NavLink>
-      <NavLink className={style.buttonActivities} to={'/activities'}><button>Activities 🏃🏻</button></NavLink>
-        </div>
     </div>
   )
 }

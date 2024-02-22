@@ -20,21 +20,25 @@ const Detail = () => {
   return (
     <div className={style.container}>
       <div className={style.containerCard}>
+        <div className={style.buttonX}>
         <NavLink to="/home" >
-          <button className={style.buttonX}>X</button>
+          <button >⬅️</button>
         </NavLink>
+        </div>
         <img className={style.flag} src={detail?.flag} alt={detail?.name} />
         <div className={style.details}>
-          <h2>{detail?.name}</h2>
-          <p>
-            Capital: {detail?.capital} | Continent: {detail?.continent} |
-            Population: {detail?.population} | Languages: {detail?.lenguajes}
-          </p>
-          <button className={style.buttonLocation}>
+          <h1>{detail?.name}</h1>
+          <h2>Capital: {detail?.capital}</h2>
+          <h2>Continent: {detail?.continent}</h2>
+          <h2>Population: {detail?.population}</h2>
+          <h2>Languages: {detail?.lenguajes}</h2>
+          <div>
+          <button>
             <a target="_blank" href={detail?.maps} rel="noreferrer">
               Location
             </a>
           </button>
+          </div>
         </div>
       </div>
     </div>

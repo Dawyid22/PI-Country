@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { getActivities } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { filterActivitiesByName, deleteActivity } from "../../redux/actions/actions";
-import { NavLink } from 'react-router-dom';
-import style from './Activities.module.css';
+import {
+  filterActivitiesByName,
+  deleteActivity,
+} from "../../redux/actions/actions";
+import { NavLink } from "react-router-dom";
+import style from "./Activities.module.css";
 
 const Activities = () => {
   const dispatch = useDispatch();
@@ -15,22 +18,22 @@ const Activities = () => {
 
   // Uso el useSelector para obtener las actividades del estado global.
   const activities = useSelector((state) => state.allActivities);
-  console.log('activities', activities);
+  console.log("activities", activities);
 
   // Uso el useSelector para obtener una copia de las actividades para filtrar.
   const copyActivities = useSelector((state) => state.copyAllActivities);
-console.log('copyActivities', copyActivities);
+  console.log("copyActivities", copyActivities);
 
   // Hago un controlador para el botón "Delete" para eliminar una actividad.
   const handleDelete = (event) => {
     // Despacho la acción
     dispatch(deleteActivity(event.target.value));
     // Renderizo las actividades sin la actividad eliminada .
-    setTimeout(()=>{
+    setTimeout(() => {
       dispatch(getActivities());
-    }, 1000)
+    }, 1000);
   };
-  
+
   // Hago un controlador para el selector de filtrado por nombre.
   const handleClick = (event) => {
     // Despacho la acción para filtrar actividades por nombre.
@@ -38,35 +41,47 @@ console.log('copyActivities', copyActivities);
   };
 
   return (
-    <div className={style.container}>
-      <div>
-        <h1 className={style.h1}>🏃🏻Here you can see all the activities🏃🏻</h1>
-        <NavLink to={'/home'}><button className={style.buttonBack}>⬅️</button></NavLink>
-        
+    <div className={style.div_main}>
+      <div className={style.title}>
+        <h1>🏃🏻Here you can see all the activities🏃🏻</h1>
+        <NavLink to={"/home"}>
+          <button>⬅️</button>
+        </NavLink>
+      </div>
+
+      <div className={style.filter}>
         {/* Selector para filtrar actividades por nombre */}
-        <select className={style.inputSelect} onClick={handleClick}>
+        <select onClick={handleClick}>
           <option value="Default">Select...</option>
           {copyActivities?.map((elem) => {
             return <option key={elem.id}>{elem.name}</option>;
           })}
         </select>
       </div>
-      
+
       {/* Contenedor para las tarjetas de actividades */}
       <div className={style.cardContainer}>
         {activities?.map((activity) => {
           return (
             <div key={activity.id} className={style.card}>
-              <button className={style.buttonClosed} onClick={handleDelete} value={activity.id}>X</button>
-              <h2 className={style.textCard}>Activity</h2>
-              <h2 className={style.textCard}>Name: {activity.name}</h2>
-              <h2 className={style.textCard}>Difficulty: {activity.difficulty}</h2>
-              <h2 className={style.textCard}>Season: {activity.season}</h2>
-              <ul>
-                {activity.Countries?.map((countries) => {
-                  return <li key={countries.id}>{countries.name}</li>;
-                })}
-              </ul>
+              <button
+                className={style.buttonClosed}
+                onClick={handleDelete}
+                value={activity.id}
+              >
+                ❌
+              </button>
+              <h2>Name: {activity.name}</h2>
+              <h2>Difficulty: {activity.difficulty}</h2>
+              <h2>Season: {activity.season}</h2>
+              <div className={style.list}>
+                <ul>
+                  <h3>Countries List</h3>
+                  {activity.Countries?.map((countries) => {
+                    return <li key={countries.id}>{countries.name}</li>;
+                  })}
+                </ul>
+              </div>
             </div>
           );
         })}
